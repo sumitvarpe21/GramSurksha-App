@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+{% load form_tags %}
+{% block content %}
+
+<div class="card shadow p-4">
+    <h2 class="mb-3 text-primary">Welcome to Gram Suraksha</h2>
+
+    <h4 class="text-success">Your Reward Points: {{ profile.points }}</h4>
+
+    <hr>
+
+    <a href="/report/" class="btn btn-primary btn-lg mb-3">Report an Issue</a><br>
+    <a href="/issues/" class="btn btn-outline-secondary btn-lg">View My Issues</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+
+
+{% extends "base.html" %}
+{% load form_tags %}
+{% block content %}
+
+<h2 class="mb-4">My Issues</h2>
+
+<div class="alert alert-info">
+    <strong>Your Points:</strong> {{ request.user.userprofile.points }}
+</div>
+
+<div class="row">
+    {% for issue in issues %}
+    <div class="col-md-6 mb-4">
+        <div class="card shadow">
+
+            <img src="{{ issue.image.url }}" class="card-img-top" style="height:250px; object-fit:cover;">
+
+            <div class="card-body">
+                <h4 class="text-capitalize">{{ issue.category }} - 
+                    <span class="badge bg-success">{{ issue.status }}</span>
+                </h4>
+
+                <p class="text-muted">{{ issue.description|truncatewords:15 }}</p>
+
+                <a href="/issues/{{ issue.id }}/" class="btn btn-primary">Details</a>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

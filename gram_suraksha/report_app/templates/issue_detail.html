@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load form_tags %}
+{% block content %}
+
+<div class="card shadow p-4">
+    <h2 class="mb-3">Issue Details</h2>
+
+    <h5>Your Points: <span class="text-success">{{ request.user.userprofile.points }}</span></h5>
+
+    <img src="{{ issue.image.url }}" class="img-fluid mb-3" style="border-radius:10px;">
+
+    <p><strong>Category:</strong> {{ issue.category }}</p>
+    <p><strong>Description:</strong> {{ issue.description }}</p>
+    <p><strong>Location:</strong> {{ issue.location }}</p>
+    <p><strong>Status:</strong> 
+        <span class="badge bg-success">{{ issue.status }}</span>
+    </p>
+    <p><strong>Reported On:</strong> {{ issue.created_at }}</p>
+
+    <hr>
+
+    <h4>Status History</h4>
+
+    {% if updates %}
+        {% for update in updates %}
+        <div class="alert alert-secondary">
+            <strong>Status:</strong> {{ update.status }} <br>
+            <strong>Note:</strong> {{ update.note }} <br>
+            <strong>Updated At:</strong> {{ update.updated_at }}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-muted">No status updates yet.</p>
+    {% endif %}
+
+    <!-- ADMIN ONLY BUTTON -->
+    {% if request.user.userprofile.is_admin %}
+        <a href="{% url 'update_issue' issue.id %}" class="btn btn-warning w-100 mt-3">
+            Update Status
+        </a>
+    {% endif %}
+</div>
+
+{% endblock %}

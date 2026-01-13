@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card shadow p-4 mb-4">
+    <h2 class="text-primary">User Profile</h2>
+    <hr>
+
+    <h4>Username: <span class="text-dark">{{ request.user.username }}</span></h4>
+    <h4>Email: <span class="text-dark">{{ request.user.email }}</span></h4>
+    <h4>Reward Points: <span class="text-success">{{ profile.points }}</span></h4>
+
+    <br>
+    <a href="/issues/" class="btn btn-primary">View All Your Issues</a>
+</div>
+
+<div class="card shadow p-4">
+    <h3>Your Reported Issues</h3>
+    <hr>
+
+    <div class="row">
+        {% for issue in issues %}
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <img src="{{ profile.photo.url }}" class="rounded-circle mb-3" width="120" height="120" style="object-fit:cover;">
+
+                <img src="{{ issue.image.url }}" class="card-img-top" style="height:250px; object-fit:cover;">
+                <div class="card-body">
+                    <h5 class="card-title text-capitalize">
+                        {{ issue.category }} 
+                        <span class="badge bg-info">{{ issue.status }}</span>
+                    </h5>
+                    <p class="card-text">{{ issue.description|truncatewords:12 }}</p>
+                    <a href="/issues/{{ issue.id }}/" class="btn btn-outline-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-muted">You haven't reported any issues yet.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

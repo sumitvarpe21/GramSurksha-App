@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-primary">Admin Dashboard</h2>
+
+<div class="row">
+    {% for issue in issues %}
+    <div class="col-md-6 mb-4">
+        <div class="card shadow">
+
+            <img src="{{ issue.image.url }}" class="card-img-top" style="height:250px; object-fit:cover;">
+
+            <div class="card-body">
+                <h4 class="text-capitalize">{{ issue.category }}</h4>
+                <p><strong>User:</strong> {{ issue.user.username }}</p>
+                <p><strong>Status:</strong> {{ issue.status }}</p>
+                <p><strong>Location:</strong> {{ issue.location }}</p>
+                <p><strong>Description:</strong> {{ issue.description }}</p>
+
+                <a href="/admin-dashboard/update/{{ issue.id }}/" class="btn btn-warning">Update Status</a>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

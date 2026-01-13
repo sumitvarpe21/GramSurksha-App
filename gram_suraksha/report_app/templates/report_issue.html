@@ -1,0 +1,37 @@
+
+
+{% extends "base.html" %}
+{% load form_tags %}
+{% block content %}
+
+<div class="card shadow p-4">
+    <h2 class="mb-4">Report an Issue</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label class="form-label">Category</label>
+            {{ form.category|add_class:"form-select" }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            {{ form.description|add_class:"form-control" }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Image</label>
+            {{ form.image }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Location</label>
+            {{ form.location|add_class:"form-control" }}
+        </div>
+
+        <button class="btn btn-success w-100">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
