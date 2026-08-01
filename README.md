@@ -1,86 +1,113 @@
 # GramSurksha - Real-Time Civic Issue Reporting System
 
-GramSurksha is a Django-based web application that enables citizens to report public issues such as road damage, garbage collection, water leakage, accidents, animal threats, and other civic problems. The platform helps bridge the gap between citizens and local authorities through a centralized reporting system.
+GramSurksha is a Django-based web application developed to simplify the reporting of civic issues. The platform allows citizens to report public problems such as road damage, garbage collection, water leakage, street light failures, accidents, and other civic concerns by uploading issue details along with supporting images.
+
+The application provides a centralized system where citizens can submit complaints while administrators can review and manage reported issues efficiently.
 
 ---
 
-## Features
+# Problem Statement
 
-- User Registration & Login
-- Report Civic Issues with Images
+Citizens often face difficulties in reporting civic issues to the appropriate authorities. Traditional complaint systems are time-consuming and lack transparency.
+
+GramSurksha provides a simple digital platform that enables citizens to report issues online, upload supporting images, and monitor the progress of their complaints.
+
+---
+
+# Features
+
+- User Registration
+- Secure Login & Logout
+- Report Civic Issues
+- Upload Images with Complaints
 - Multiple Issue Categories
-- Issue Status Tracking
+- View Submitted Complaints
 - Admin Dashboard
-- Image Upload Support
-- Citizen Profile Management
-- SQLite Database Integration
+- Manage Reported Issues
 - Responsive User Interface
 
 ---
 
-## Problem Statement
+# Technology Stack
 
-Citizens often face difficulties in reporting civic issues to the appropriate authorities. GramSurksha provides a centralized platform where users can quickly report issues, upload supporting images, and monitor the status of their complaints.
-
----
-
-## Tech Stack
-
-### Backend
+## Backend
 - Python
 - Django
 
-### Frontend
+## Frontend
 - HTML
 - CSS
 - JavaScript
 - Bootstrap
 
-### Database
+## Database
 - SQLite
 
 ---
 
-## Project Structure
+# Project Structure
 
 ```
-GramSurksha-App/
+GramSurksha-App
 │
 ├── gram_suraksha/
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
 ├── report_app/
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   ├── forms.py
+│   ├── admin.py
+│   └── migrations/
+│
+├── templates/
 ├── media/
 ├── manage.py
-├── db.sqlite3
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## Modules
+# Modules
 
-### User Module
+## User Module
+
 - User Registration
 - Login & Logout
-- Profile Management
+- User Authentication
 
-### Issue Module
-- Report New Issue
-- Upload Images
-- View Submitted Issues
-- Track Issue Status
+---
 
-### Admin Module
-- Manage Users
-- Review Reported Issues
-- Update Issue Status
+## Issue Module
+
+Users can
+
+- Report New Issues
+- Upload Supporting Images
+- Select Issue Categories
+- View Submitted Complaints
+
+---
+
+## Admin Module
+
+Administrator can
+
+- View Reported Issues
+- Manage User Complaints
+- Update Complaint Details
 - Delete Invalid Reports
 
 ---
 
-## Issue Categories
+# Supported Issue Categories
 
 - Road Damage
-- Garbage
+- Garbage Collection
 - Water Leakage
 - Street Light Failure
 - Animal Threat
@@ -90,27 +117,53 @@ GramSurksha-App/
 
 ---
 
-## Installation
+# System Workflow
 
-### Clone Repository
+```
+User
+   │
+   ▼
+Register / Login
+   │
+   ▼
+Report Civic Issue
+   │
+   ▼
+Upload Image
+   │
+   ▼
+Store in Database
+   │
+   ▼
+Admin Reviews Complaint
+   │
+   ▼
+Issue Managed
+```
+
+---
+
+# Installation
+
+Clone the repository
 
 ```bash
 git clone https://github.com/sumitvarpe21/GramSurksha-App.git
 ```
 
-### Navigate to Project
+Navigate to project
 
 ```bash
 cd GramSurksha-App
 ```
 
-### Install Dependencies
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run Server
+Run the server
 
 ```bash
 python manage.py runserver
@@ -124,46 +177,33 @@ http://127.0.0.1:8000/
 
 ---
 
-## Future Improvements
+# Future Enhancements
 
 - Email Notifications
 - Live Location Support
-- AI-based Issue Classification
-- Government Authority Dashboard
 - Mobile Application
+- AI-Based Issue Classification
+- Government Authority Dashboard
 - Complaint Analytics
 
 ---
 
-## Screenshots
+# My Contribution
 
-Add screenshots here.
-
-Example:
-
-- Login Page
-- Home Page
-- Report Issue Form
-- Admin Dashboard
-- User Profile
-
----
-
-## My Contribution
-
-- Designed and developed the Django backend.
+- Developed the Django-based web application.
+- Designed the database models using Django ORM.
 - Implemented user authentication.
-- Developed issue reporting functionality.
-- Integrated image upload support.
-- Created database models.
-- Developed admin functionalities.
-- Built responsive frontend pages.
+- Developed the issue reporting module.
+- Integrated image upload functionality.
+- Built the admin management features.
+- Created responsive frontend pages using HTML, CSS, Bootstrap, and JavaScript.
 
 ---
 
-## Author
+# Author
 
 **Sumit Varpe**
 
-GitHub: https://github.com/sumitvarpe21
+Information Technology Student
 
+GitHub: https://github.com/sumitvarpe21
